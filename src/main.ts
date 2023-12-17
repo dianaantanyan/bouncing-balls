@@ -93,7 +93,7 @@ function updateCircle(circle: Circle, deltaTime: number) {
   if (circle.y + circle.radius > canvas.height) {
     circle.y = canvas.height - circle.radius;
     circle.velocityY *= -circle.damping!;
-    // Introduce a damping effect on rotation as well
+    
     circle.rotation *= circle.damping!; 
   }
 
@@ -112,7 +112,7 @@ function drawFrame() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   circles.forEach((circle) => {
-    updateCircle(circle, 16); // Assuming 60fps, deltaTime is approximately 16ms
+    updateCircle(circle, 16); 
     drawTrail(circle);
     drawCircle(circle);
   });
@@ -131,7 +131,7 @@ function spawnCircle(x: number, y: number) {
 canvas.addEventListener('click', (event) => {
   spawnCircle(event.clientX, event.clientY);
 
-  // Flash effect on background color change
+  
   canvas.style.backgroundColor = '#f0f0f0';
   setTimeout(() => {
     canvas.style.backgroundColor = '#ffffff';
